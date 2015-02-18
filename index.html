@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grammar made easy</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/html" id="intro-template">
+        <h1 data-bind="text: header"></h3>
+        <div data-bind="text: text"></div>
+        <div class="buttonBox">
+            <div class="button main" data-bind="click: function() { $root.currentPage($root.pages[1]) }">Got it, start the lesson</div>
+        </div>
+    </script>
+
+    <script type="text/html" id="lesson-template">
+        <h1 data-bind="text: header"></h3>
+        <div data-bind="text: text"></div>
+        <div class="buttonBox">
+            <div class="button" data-bind="click: function() { $root.currentPage($root.pages[0]) }">Back to the introduction</div>
+            <div class="button main" data-bind="click: function() { $root.currentPage($root.pages[2]) }">Right, time for some practice</div>
+        </div>
+    </script>
+
+    <script type="text/html" id="practice-template">
+        <h1 data-bind="text: header"></h3>
+        <div data-bind="text: text"></div>
+        <div class="buttonBox">
+            <div class="button" data-bind="click: function() { $root.currentPage($root.pages[1]) }">Show me the course material again</div>
+            <div class="button main" data-bind="click: function() { $root.currentPage($root.pages[3]) }">I&#39;m ready, let me take the test</div>
+        </div>
+    </script>
+
+    <script type="text/html" id="test-template">
+        <h1 data-bind="text: header"></h3>
+        <div data-bind="text: text"></div>
+
+        <div class="multiplechoice">
+            <div><input type="radio" name="flavorGroup" value="wrong" data-bind="checked: answer" />Wrong answer</div>
+            <div><input type="radio" name="flavorGroup" value="right" data-bind="checked: answer" /> Right answer</div>
+        </div>
+
+        <div class="buttonBox">
+            <div class="button" data-bind="click: function() { $root.currentPage($root.pages[2]) }">This is hard. Let me practice a bit more</div>
+            <div class="button main" data-bind="click: function() { validate() && $root.currentPage($root.pages[4]) }, enabled: answer() == 'right', css: { disabled: !validate() }">Piece of cake</div>
+        </div>
+    </script>
+
+    <script type="text/html" id="congrats-template">
+        <h1 data-bind="text: header"></h3>
+        <div data-bind="text: text"></div>
+        <div class="buttonBox">
+            <div class="button main" data-bind="click: function() { $root.currentPage($root.pages[0]) }">Back to the introduction</div>
+        </div>
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <div class="logoimg"></div>
+            <div>GrammarGramma</div>
+        </div>
+        <!-- ko foreach: pages.slice(0,4) -->
+        <div class="navlink" data-bind="text: displayName, click: function() { $parent.currentPage(this) }, css: { active: $data == $parent.currentPage() }"></div>
+        <!-- /ko -->
+    </div>
+    <div class="contentBox">
+        <div class="content" data-bind="template: { name: currentPage().name + '-template', data: currentPage().content }"></div>
+    </div>
+    <script type="text/javascript" src="knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
