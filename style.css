@@ -135,3 +135,9 @@ body {
 .multiplechoice {
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 800px) {
+    .button {
+        font-size: 40px;
+    }
+}
