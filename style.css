@@ -86,10 +86,12 @@ body {
 .content {
     margin: 40px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
 
 .content h1 {
     font-family: 'Patua One', sans-serif;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -139,5 +141,13 @@ body {
 @media only screen and (max-device-width: 800px) {
     .button {
         font-size: 40px;
+    }
+
+    .content {
+        font-size: 24px;
+    }
+
+    .content h1 {
+        font-size: 36px;
     }
 }
