@@ -24,6 +24,10 @@ function AppViewModel() {
         },
     ];
     self.currentPage = ko.observable(self.pages[0]);
+
+    self.navigate = function(to)  {
+        self.currentPage(_.find(self.pages, function(page) { return page.name == to }));
+    }
 }
 
 function IntroViewModel() {
