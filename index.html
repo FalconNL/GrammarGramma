@@ -2,37 +2,244 @@
 <html>
 <head>
     <title>GrammarGramma</title>
+    <meta charset="UTF-8"> 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script type="text/html" id="intro-template">
-        <h1 data-bind="text: header"></h3>
-        <div data-bind="text: text"></div>
+        <h1>Word order</h1>
+        <p>Master Yoda clearly doesn&#39;t know the rules for correct word order
+           (woordvolgorde) in English sentences. Knowing about these rules and how to
+           apply them is extremely important if you want to be able to form correct
+           sentences. There are big differences between word order in English and in
+           Dutch. This lesson will help you to determine what the correct word order is
+           in different kinds of English sentences.</p>
+        <div class="imgContainer">
+            <img src="img/yoda.png" title="Yoda">
+        </div>
+        <h1>Lesson aims</h1>
+        <p>By the end of this lesson you:</p>
+        <ul>
+            <li><span>Will have learnt about word order in English sentences</span></li>
+            <li><span>Will better be able to construct English sentences</span></li>
+            <li><span>Will have practised constructing different kinds of English sentences</span></li>
+            <li><span>Will have put your knowledge about word order in English sentences to the test</span></li>
+        </ul>
+        <h1>Where do I start?</h1>
+        <ol>
+            <li>
+                <span>
+                    Learn all you need to know about word order on the
+                    <a href="" data-bind="click: function() { $root.navigate('lesson') }">Theory page</a>.
+                </span>
+            </li>
+            <li>
+                <span>
+                    <a href="" data-bind="click: function() { $root.navigate('practice') }">Do the practise exercise</a>.
+                    If you have a lot of mistakes, study the theory and examples again. Then do the exercise again.
+                </span>
+            </li>
+            <li>
+                <span>
+                    Put your knowledge to the test on the
+                    <a href="" data-bind="click: function() { $root.navigate('test') }">Test yourself</a> page.
+                </span>
+            </li>
+            <li>
+                <span>
+                    If you have any questions after doing the test, write them down and make sure to
+                    bring them to our next lesson. 
+                </span>
+            </li>
+        </ol>
         <div class="buttonBox">
-            <div class="button main" data-bind="click: function() { $root.navigate('lesson') }">Got it, start the lesson</div>
+            <div class="button main" data-bind="click: function() { $root.navigate('lesson') }">Start the lesson</div>
         </div>
     </script>
 
     <script type="text/html" id="lesson-template">
-        <h1 data-bind="text: header"></h3>
-        <div data-bind="text: text"></div>
+        <h1>Theory</h1>
+        <h2>1. The sentence</h2>
+        <p>The word order in sentences is: Subject &ndash; Verb &ndash; Object (SVO).</p>
+        <table class="centered">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Verb</th>
+                    <th>Object</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I</td>
+                    <td>play</td>
+                    <td>football</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Attention: Do not split the verb forms in English:</p>
+        <div class="exampleSentence">
+            <span class="sentence">I can English speak.</span>
+            <img src="img/incorrect.svg" title="Incorrect">
+        </div>
+        <div class="exampleSentence">
+            <span class="sentence">I can speak English.</span>
+            <img src="img/correct.svg" title="Correct">
+        </div>
+
+        <h2>2. Adverbs</h2>
+        <p>We can put adverbs in different positions in sentences. There are three main
+           positions but also a lot of exceptions.</p>
+        <p>In English we never put an <span class="highlightAdverb">adverb</span> between
+           the verb and the object.</p>
+        <div class="exampleSentence">
+            <span class="sentence">
+                We play <span class="highlightAdverb">often</span> handball.
+            </span>
+            <img src="img/incorrect.svg" title="Incorrect">
+        </div>
+        <div class="exampleSentence">
+            <span class="sentence">
+                We <span class="highlightAdverb">often</span> play handball.
+            </span>
+            <img src="img/correct.svg" title="Correct">
+        </div>
+        <p>There are three main possible positions for adverbs in English sentences:</p>
+        <p>At the beginning of a sentence</p>
+        <div class="exampleSentence">
+            <span class="sentence">
+                <span class="highlightAdverb">Unfortunately</span>, we could not see Mount
+                Snowdon.
+            </span>
+        </div>
+        <p>In the middle of a sentence</p>
+        <div class="exampleSentence">
+            <span class="sentence">
+                The children <span class="highlightAdverb">often</span> ride their bikes.
+            </span>
+        </div>
+        <p>At the end of a sentence</p>
+        <div class="exampleSentence">
+            <span class="sentence">
+                Andy reads a comic <span class="highlightAdverb">every afternoon</span>.
+            </span>
+        </div>
+        <p>If there are more adverbs at the end of a sentence, the word order is normally:</p>
+        <p><span class="highlightManner">Manner</span> &ndash;
+           <span class="highlightPlace">Place</span> &ndash;
+           <span class="highlightTime">Time</span></p>
+        <div class="exampleSentence">
+            <span class="sentence">
+                Peter sang the song <span class="highlightManner">happily</span>
+                <span class="highlightPlace">in the bathroom</span>
+                <span class="highlightTime">yesterday evening</span>.
+            </span>
+        </div>
+
+        <h2>3. Expression of place and time </h2>
+        <p>Have a look at the following examples.</p>
+        <table class="centered">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Verb</th>
+                    <th>Object</th>
+                    <th>Place</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>I</td>
+                    <td>have</td>
+                    <td>breakfast</td>
+                    <td><span class="highlightPlace">in the kitchen.</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>They</td>
+                    <td>play</td>
+                    <td>handball</td>
+                    <td><span class="highlightPlace">in the gym</span></td>
+                    <td><span class="highlightTime">every Monday.</span></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>My friend</td>
+                    <td>is swimming</td>
+                    <td>&nbsp;</td>
+                    <td><span class="highlightPlace">in the pool.</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><span class="highlightTime">Every Saturday&nbsp;*</span></td>
+                    <td>Peter</td>
+                    <td>watches</td>
+                    <td>TV</td>
+                    <td><span class="highlightPlace">at home.</span></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Expressions of time go at the end of a statement.</p>
+        <p>At the end of the sentence: <span class="highlightPlace">place</span> before
+           <span class="highlightTime">time</span></p>
+        <p>Never put the place or time between the verb and object.</p>
+        <div class="exampleSentence">
+            <span class="sentence">I have <span class="highlightPlace">in the kitchen</span> breakfast.</span>
+            <img src="img/incorrect.svg" title="Incorrect">
+        </div>
+        <div class="exampleSentence">
+            <span class="sentence">I have breakfast <span class="highlightPlace">in the kitchen</span>.</span>
+            <img src="img/correct.svg" title="Correct">
+        </div>
+        <p>* Definite expressions of time can also go at the beginning of the sentence if
+           they are not the main focus in the sentence. If you are in doubt: put it at the
+           end of the sentence &ndash; it is more likely to be right.</p>
+
         <div class="buttonBox">
-            <div class="button" data-bind="click: function() { $root.navigate('intro') }">Back to the introduction</div>
-            <div class="button main" data-bind="click: function() { $root.navigate('practice') }">Right, time for some practice</div>
+            <div class="button" data-bind="click: function() { $root.navigate('intro') }">Back to introduction</div>
+            <div class="button main" data-bind="click: function() { $root.navigate('practice') }">Practice</div>
         </div>
     </script>
 
     <script type="text/html" id="practice-template">
-        <h1 data-bind="text: header"></h3>
-        <div data-bind="text: text"></div>
+        <h1>Practice</h1>
+        <p>Form affirmative or negative statements. Click on the words in the correct order.</p>
+        <!-- ko foreach: sentences -->
+        <div class="practiceSentence">
+            <div data-bind="visible: remainingWords().length > 0 || !correct()">
+                <!-- ko foreach: remainingWords -->
+                <span class="practiceWord" data-bind="text: $data, click: function() { $parent.place($data) }"></span>
+                <!-- /ko -->
+                <span class="practiceRefresh" data-bind="click: function() { reset() }"><img src="img/refresh.svg" title="Reset"></span>
+            </div>
+            <div class="practiceResult">
+                <!-- ko foreach: chosenWords -->
+                <span data-bind="text: $data"></span>
+                <!-- /ko -->
+                <span>&nbsp;</span>
+                <div class="practiceCheck" data-bind="visible: remainingWords().length == 0 && correct()">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div class="practiceCheck" data-bind="visible: remainingWords().length == 0 && !correct()">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+
         <div class="buttonBox">
-            <div class="button" data-bind="click: function() { $root.navigate('lesson') }">Show me the course material again</div>
-            <div class="button main" data-bind="click: function() { $root.navigate('test') }">I&#39;m ready, let me take the test</div>
+            <div class="button" data-bind="click: function() { $root.navigate('lesson') }">Back to theory</div>
+            <div class="button main" data-bind="click: function() { $root.navigate('test') }">Take the test</div>
         </div>
     </script>
 
     <script type="text/html" id="test-template">
-        <h1 data-bind="text: header"></h3>
+        <h1 data-bind="text: header"></h1>
         <div data-bind="text: text"></div>
 
         <div class="multiplechoice">
@@ -41,13 +248,13 @@
         </div>
 
         <div class="buttonBox">
-            <div class="button" data-bind="click: function() { $root.navigate('practice') }">This is hard. Let me practice a bit more</div>
+            <div class="button" data-bind="click: function() { $root.navigate('practice') }">Practice some more</div>
             <div class="button main" data-bind="click: function() { validate() && $root.navigate('congrats') }, enabled: answer() == 'right', css: { disabled: !validate() }">Piece of cake</div>
         </div>
     </script>
 
     <script type="text/html" id="congrats-template">
-        <h1 data-bind="text: header"></h3>
+        <h1 data-bind="text: header"></h1>
         <div data-bind="text: text"></div>
         <div class="buttonBox">
             <div class="button main" data-bind="click: function() { $root.navigate('intro') }">Back to the introduction</div>

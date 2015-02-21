@@ -13,7 +13,7 @@
   src: url('fonts/OpenSans-Regular.ttf');
 }
 
-body, h1, p {
+body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
@@ -76,10 +76,9 @@ body {
     overflow: auto;
     background-color: white;
     width: 70%;
-    min-width: 400px;
+    min-width: 550px;
     max-width: 800px;
-    margin: auto;
-    margin-top: 100px;
+    margin: 100px auto 100px auto;
     box-shadow: 5px 5px 5px rgba(94, 113, 128, 0.5);
 }
 
@@ -87,12 +86,183 @@ body {
     margin: 40px;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    line-height: 1.5em;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.content a {
+    text-decoration: none;
+    color: #1565c0;
+}
+
+.centered {
+    margin: auto;
+}
+
+.content h1, .content h2 {
+    font-family: 'Patua One', sans-serif;
 }
 
 .content h1 {
-    font-family: 'Patua One', sans-serif;
     font-size: 32px;
     margin-bottom: 20px;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.content ul {
+    padding-left: 1.2em;
+    margin-bottom: 20px;
+}
+
+.content ol {
+    padding-left: 0.2em;
+}
+
+.content li span {
+    padding-left: 1.2em;
+    display: block;
+}
+
+.content ol {
+    list-style: none;
+    counter-reset: ol;
+}
+
+.content ol li {
+    min-height: 2.5em;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+.content ol li span {
+    margin-left: 2em;
+}
+
+.content ol li:before {
+    content: counter(ol);
+    background-color: #1565c0;
+    color: white;
+    border-radius: 40px;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 0.4em;
+    counter-increment: ol;
+    text-align: center;
+    line-height: 2em;
+    font-family: 'Patua One', sans-serif;
+}
+
+.content .imgContainer {
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+.content table {
+    border: 1px solid #1565c0;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.content thead {
+    background-color: #1565c0;
+    color: white;
+}
+
+.content th, .content td {
+    padding: 10px 5px 10px 5px;
+}
+
+.content td {
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid #1565c0;
+}
+
+.content .exampleSentence {
+    text-align: center;
+}
+
+.content .exampleSentence + p {
+    margin-top: 20px;
+}
+
+.content .exampleSentence span.sentence, .content .exampleSentence img {
+    vertical-align: middle;
+}
+
+.content .exampleSentence img {
+    width: 2em;
+}
+
+.content .highlightAdverb {
+    color: #ef6c00;
+}
+
+.content .highlightManner {
+    color: #9575cd;
+}
+
+.content .highlightPlace {
+    color: #00acc1;
+}
+
+.content .highlightTime {
+    color: #ab47bc;
+}
+
+.content .practiceWord, .content .practiceRefresh {
+    background-color: #1565c0;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 5px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.content .practiceRefresh {
+    background-color: #c62828;
+}
+
+.content .practiceRefresh img {
+    vertical-align: middle;
+    width: 1em;
+}
+
+.content .practiceSentence {
+    margin-bottom: 40px;
+}
+
+.content .practiceResult {
+    border: 1px solid #cccccc;
+    margin-top: 10px;
+    padding: 5px 3em 5px 10px;
+    position: relative;
+}
+
+.content .practiceCheck {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.content .practiceCheck img {
+    height: 2em;
 }
 
 .buttonBox {
