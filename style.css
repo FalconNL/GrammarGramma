@@ -322,24 +322,3 @@ body {
 .multiplechoice {
     margin-top: 20px;
 }
-
-@media only screen and (max-device-width: 800px) {
-    .button {
-        font-size: 40px;
-        padding: 10px 30px 10px 30px;
-    }
-
-    .contentBox {
-        margin-top: 0;
-        width: 100%;
-        max-width: none;
-    }
-
-    .content {
-        font-size: 40px;
-    }
-
-    .content h1 {
-        font-size: 60px;
-    }
-}
