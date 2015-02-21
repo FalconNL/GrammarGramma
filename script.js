@@ -112,6 +112,7 @@ function AppViewModel() {
 
     self.navigate = function(to)  {
         self.currentPage(_.find(self.pages, function(page) { return page.name === to; }));
+        window.scrollTo(0, 0);
     };
 }
 
