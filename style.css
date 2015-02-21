@@ -181,6 +181,12 @@ body {
     padding: 10px 5px 10px 5px;
 }
 
+.content th {
+    font-weight: normal;
+    font-family: 'Patua One', sans-serif;
+    font-size: 18px;
+}
+
 .content td {
     text-align: center;
     vertical-align: top;
