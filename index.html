@@ -73,7 +73,7 @@
                 <tr>
                     <td>I</td>
                     <td>play</td>
-                    <td>football</td>
+                    <td>football.</td>
                 </tr>
             </tbody>
         </table>
@@ -267,9 +267,11 @@
             <div class="logoimg"></div>
             <div>GrammarGramma</div>
         </div>
-        <!-- ko foreach: pages.slice(0,4) -->
-        <div class="navlink" data-bind="text: displayName, click: function() { $parent.currentPage(this) }, css: { active: $data == $parent.currentPage() }"></div>
-        <!-- /ko -->
+        <div class="navlinkContainer">
+            <!-- ko foreach: pages.slice(0,4) -->
+            <div class="navlink" data-bind="text: displayName, click: function() { $parent.currentPage(this) }, css: { active: $data == $parent.currentPage() }"></div>
+            <!-- /ko -->
+        </div>
     </div>
     <div class="contentBox">
         <div class="content" data-bind="template: { name: currentPage().name + '-template', data: currentPage().content }"></div>
