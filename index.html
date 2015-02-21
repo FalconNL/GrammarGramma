@@ -239,25 +239,203 @@
     </script>
 
     <script type="text/html" id="test-template">
-        <h1 data-bind="text: header"></h1>
-        <div data-bind="text: text"></div>
+        <h1>Test</h1>
 
-        <div class="multiplechoice">
-            <div><input type="radio" name="flavorGroup" value="wrong" data-bind="checked: answer" /> Wrong answer</div>
-            <div><input type="radio" name="flavorGroup" value="right" data-bind="checked: answer" /> Right answer</div>
+        <p class="testExplanation">Rewrite the following sentences using the word/words in brackets.</p>
+        <!-- ko foreach: rewriteQuestions -->
+        <p class="testHint"><span data-bind="text: hint() + postfix()"></span> <span class="testRewriteNewWords" data-bind="text: '(' + newWords() + ')'"></span></p>
+        <input class="testInput" data-bind="textInput: guess" /> <span data-bind="text: postfix"></span>
+        <!-- /ko -->
+
+        <p class="testExplanation">Define the highlighted parts.</p>
+        <!-- ko foreach: defineQuestions -->
+        <p class="testHint"><span data-bind="html: hint"></span></p>
+        <div class="testMultipleChoice">
+            <!-- ko foreach: choices -->
+            <div>
+                <input type="radio" data-bind="attr: { name: $parent.id, value: $data }, checked: $parent.guess"> <span data-bind="text: $data"></span>
+            </div>
+            <!-- /ko -->
         </div>
+        <!-- /ko -->
+
+        <p class="testExplanation">Form a sentence using the following words.</p>
+        <!-- ko foreach: formSentenceQuestions -->
+        <p class="testHint"><span data-bind="text: hint"></span></p>
+        <input class="testInput" data-bind="textInput: guess" /> <span data-bind="text: postfix"></span>
+        <!-- /ko -->
+
+        <p class="testExplanation">Which sentences are correct?</p>
+        <!-- ko foreach: correctQuestions -->
+        <p class="testHint"><span data-bind="text: hint"></span></p>
+        <div class="testMultipleChoice">
+            <!-- ko foreach: choices -->
+            <div>
+                <input type="radio" data-bind="attr: { name: $parent.id, value: $data }, checked: $parent.guess"> <span data-bind="text: $data"></span>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <p class="testExplanation">Form a question using the following words.</p>
+        <!-- ko foreach: formQuestionQuestions -->
+        <p class="testHint"><span data-bind="text: hint"></span></p>
+        <input class="testInput" data-bind="textInput: guess" /> <span data-bind="text: postfix"></span>
+        <!-- /ko -->
 
         <div class="buttonBox">
             <div class="button" data-bind="click: function() { $root.navigate('practice') }">Practice some more</div>
-            <div class="button main" data-bind="click: function() { validate() && $root.navigate('congrats') }, enabled: answer() == 'right', css: { disabled: !validate() }">Piece of cake</div>
+            <div class="button main" data-bind="click: function() { testCompleted() && $root.navigate('results') }, css: { disabled: !testCompleted() }">Grade me</div>
         </div>
     </script>
 
-    <script type="text/html" id="congrats-template">
-        <h1 data-bind="text: header"></h1>
-        <div data-bind="text: text"></div>
+    <script type="text/html" id="results-template">
+        <h1>Test results</h1>
+
+        <div class="sectionResult">
+            <div class="subResult"><span data-bind="text: correct(testViewModel().rewriteQuestions)"></span> out of <span data-bind="text: testViewModel().questionsPerSection"></span></div>
+            <div>Rewriting sentences</div>
+        </div>
+        <div class="sectionResult">
+            <div class="subResult"><span data-bind="text: correct(testViewModel().defineQuestions)"></span> out of <span data-bind="text: testViewModel().questionsPerSection"></span></div>
+            <div>Defining functions</div>
+        </div>
+        <div class="sectionResult">
+            <div class="subResult"><span data-bind="text: correct(testViewModel().formSentenceQuestions)"></span> out of <span data-bind="text: testViewModel().questionsPerSection"></span></div>
+            <div>Forming sentences</div>
+        </div>
+        <div class="sectionResult">
+            <div class="subResult"><span data-bind="text: correct(testViewModel().correctQuestions)"></span> out of <span data-bind="text: testViewModel().questionsPerSection"></span></div>
+            <div>Identifying the correct sentences</div>
+        </div>
+        <div class="sectionResult">
+            <div class="subResult"><span data-bind="text: correct(testViewModel().formQuestionQuestions)"></span> out of <span data-bind="text: testViewModel().questionsPerSection"></span></div>
+            <div>Forming questions</div>
+        </div>
+        <div class="overallResultContainer">
+            <div class="overallResult"><span data-bind="text: score()"></span>%</div>
+        </div>
+
+        <div class="opinion">
+            <div class="image">
+                <img src="img/logo-large.png" title="Grammar gramma">
+            </div>
+            <div class="comment" data-bind="text: opinion()"></div>
+        </div>
+
+        <!-- ko if: correct(testViewModel().rewriteQuestions) < testViewModel().questionsPerSection -->
+        <div class="wrongAnswerSection">
+            <h3>Rewriting sentences</h3>
+            <!-- ko foreach: testViewModel().rewriteQuestions -->
+            <!-- ko if: !isCorrect() -->
+            <div class="wrongAnswer">
+                <div class="resultCheck">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+                <div data-bind="text: guess() ? guess() : 'You did not answer this question.'"></div>
+            </div>
+            <div class="rightAnswer">
+                <div class="resultCheck">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div data-bind="text: answers()[0]"></div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: correct(testViewModel().defineQuestions) < testViewModel().questionsPerSection -->
+        <div class="wrongAnswerSection">
+            <h3>Defining functions</h3>
+            <!-- ko foreach: testViewModel().defineQuestions -->
+            <!-- ko if: !isCorrect() -->
+            <div class="wrongAnswerHint" data-bind="html: hint"></div>
+            <div class="wrongAnswer">
+                <div class="resultCheck">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+                <div data-bind="text: guess() ? guess() : 'You did not answer this question.'"></div>
+            </div>
+            <div class="rightAnswer">
+                <div class="resultCheck">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div data-bind="text: answer"></div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: correct(testViewModel().formSentenceQuestions) < testViewModel().questionsPerSection -->
+        <div class="wrongAnswerSection">
+            <h3>Forming sentences</h3>
+            <!-- ko foreach: testViewModel().formSentenceQuestions -->
+            <!-- ko if: !isCorrect() -->
+            <div class="wrongAnswer">
+                <div class="resultCheck">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+                <div data-bind="text: guess() ? guess() : 'You did not answer this question.'"></div>
+            </div>
+            <div class="rightAnswer">
+                <div class="resultCheck">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div data-bind="text: answers()[0]"></div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: correct(testViewModel().correctQuestions) < testViewModel().questionsPerSection -->
+        <div class="wrongAnswerSection">
+            <h3>Identifying the correct sentences</h3>
+            <!-- ko foreach: testViewModel().correctQuestions -->
+            <!-- ko if: !isCorrect() -->
+            <div class="wrongAnswer">
+                <div class="resultCheck">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+                <div data-bind="text: guess() ? guess() : 'You did not answer this question.'"></div>
+            </div>
+            <div class="rightAnswer">
+                <div class="resultCheck">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div data-bind="text: answer"></div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: correct(testViewModel().formQuestionQuestions) < testViewModel().questionsPerSection -->
+        <div class="wrongAnswerSection">
+            <h3>Forming questions</h3>
+            <!-- ko foreach: testViewModel().formQuestionQuestions -->
+            <!-- ko if: !isCorrect() -->
+            <div class="wrongAnswer">
+                <div class="resultCheck">
+                    <img src="img/incorrect.svg" title="Incorrect">
+                </div>
+                <div data-bind="text: guess() ? guess() : 'You did not answer this question.'"></div>
+            </div>
+            <div class="rightAnswer">
+                <div class="resultCheck">
+                    <img src="img/correct.svg" title="Correct">
+                </div>
+                <div data-bind="text: answers()[0]"></div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+        
         <div class="buttonBox">
-            <div class="button main" data-bind="click: function() { $root.navigate('intro') }">Back to the introduction</div>
+            <div class="button main" data-bind="click: function() { $root.navigate('intro') }">Back to introduction</div>
         </div>
     </script>
 </head>
@@ -269,7 +447,7 @@
         </div>
         <div class="navlinkContainer">
             <!-- ko foreach: pages.slice(0,4) -->
-            <div class="navlink" data-bind="text: displayName, click: function() { $parent.currentPage(this) }, css: { active: $data == $parent.currentPage() }"></div>
+            <div class="navlink" data-bind="text: displayName, click: function() { $data != $parent.currentPage() && $root.navigate($data.name) }, css: { active: $data == $parent.currentPage() }"></div>
             <!-- /ko -->
         </div>
     </div>

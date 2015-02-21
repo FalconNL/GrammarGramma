@@ -13,7 +13,12 @@
   src: url('fonts/OpenSans-Regular.ttf');
 }
 
-body, h1, h2, p {
+@font-face {
+  font-family: 'Open Sans Italic';
+  src: url('fonts/OpenSans-Italic.ttf');
+}
+
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
 }
@@ -106,7 +111,7 @@ body {
     margin: auto;
 }
 
-.content h1, .content h2 {
+.content h1, .content h2, .content h3 {
     font-family: 'Patua One', sans-serif;
 }
 
@@ -118,6 +123,11 @@ body {
 .content h2 {
     font-size: 24px;
     margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.content h3 {
+    font-size: 19px;
     margin-bottom: 5px;
 }
 
@@ -218,7 +228,7 @@ body {
 }
 
 .content .highlightManner {
-    color: #9575cd;
+    color: #afb42b;
 }
 
 .content .highlightPlace {
@@ -238,6 +248,8 @@ body {
     box-sizing: border-box;
     display: inline-block;
     margin-bottom: 5px;
+    min-width: 2em;
+    text-align: center;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -278,6 +290,105 @@ body {
     width: 32px;
     height: 32px;
     display: block;
+}
+
+.content .testExplanation {
+    margin-top: 40px;
+}
+
+.content .testRewriteNewWords, .content .testDefineHighlight {
+    font-family: 'Open Sans Italic', sans-serif;
+    color: #1565c0;
+}
+
+.content .testHint {
+    margin-bottom: 10px;
+}
+
+.content .testMultipleChoice {
+    margin-bottom: 30px;
+}
+
+.content .testInput {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 400px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.content .sectionResult {
+    margin-bottom: 10px;
+}
+
+.content .subResult {
+    float: right;
+}
+
+.content .overallResultContainer {
+    text-align: right;
+}
+
+.content .overallResult {
+    font-family: 'Patua One', sans-serif;
+    font-size: 48px;
+    border-top: 1px solid black;
+    padding-top: 20px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.content .opinion {
+    min-height: 105px;
+    margin: 30px 0;
+}
+
+.content .opinion .image {
+    float: left;
+}
+.content .opinion img {
+    display: block;
+}
+
+.content .comment {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-left: 125px;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+.content .resultCheck {
+    float: right;
+}
+
+.content .resultCheck img {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.content .wrongAnswerSection {
+    margin-bottom: 30px;
+}
+
+.content .wrongAnswerHint {
+    min-height: 32px;
+}
+
+.content .wrongAnswer, .content .rightAnswer {
+    min-height: 32px;
+    clear: both;
+}
+
+.content .wrongAnswer {
+    color: #c62828;
+}
+
+.content .rightAnswer {
+    color: #388e3c;
 }
 
 .buttonBox {
