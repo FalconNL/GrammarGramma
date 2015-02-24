@@ -13,7 +13,7 @@ function PracticeSentenceViewModel(words, solution) {
     };
 
     self.reset = function() {
-        self.remainingWords(self.words());
+        self.remainingWords(self.words().slice(0));
         self.chosenWords([]);
     };
 
