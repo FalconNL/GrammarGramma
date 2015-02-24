@@ -69,7 +69,7 @@ function RewriteViewModel(hint, postfix, answers, newWords) {
     self.guess = ko.observable("");
 
     self.isCorrect = function() {
-        return self.answers().indexOf(self.guess().toLowerCase()) > -1;
+        return self.answers().indexOf(self.guess().toLowerCase().replace(/[\.\?]/g, '')) > -1;
     };
 }
 
@@ -117,15 +117,15 @@ function TestViewModel() {
     ]
 
     self.allFormSentenceQuestions = [
-        new RewriteViewModel("Victoria Station / leaves / the bus / at 7", ".", ["the bus leaves victoria station at 7"]),
-        new RewriteViewModel("he / speaks / well / French", ".", ["he speaks french well"]),
-        new RewriteViewModel("she / writes / a letter / often", ".", ["she often writes a letter", "she writes a letter often"]),
-        new RewriteViewModel("Alex / under the shower / the song / sang / loudly", ".", ["alex loudly sang the song under the shower", "alex sang the song loudly under the shower", "alex sang the song under the shower loudly"]),
-        new RewriteViewModel("did / I / my homework / do / in my room / not", ".", ["i did not do my homework in my room", "in my room i did not do my homework"]),
-        new RewriteViewModel("play / they / handball / in the evening / always", ".", ["they always play handball in the evening", "in the evening they always play handball"]),
-        new RewriteViewModel("lunch / did / we / not / yesterday / have / at school", ".", ["yesterday we did not have lunch at school", "we did not have lunch at school yesterday"]),
-        new RewriteViewModel("in Berlin / can / his uncle / he / visit", ".", ["he can visit his uncle in berlin", "in berlin he can visit his uncle"]),
-        new RewriteViewModel("to music / Marlen / is listening / now", ".", ["Marlen is listening to music now"]),
+        // new RewriteViewModel("Victoria Station / leaves / the bus / at 7", ".", ["the bus leaves victoria station at 7"]),
+        // new RewriteViewModel("he / speaks / well / French", ".", ["he speaks french well"]),
+        // new RewriteViewModel("she / writes / a letter / often", ".", ["she often writes a letter", "she writes a letter often"]),
+        // new RewriteViewModel("Alex / under the shower / the song / sang / loudly", ".", ["alex loudly sang the song under the shower", "alex sang the song loudly under the shower", "alex sang the song under the shower loudly"]),
+        // new RewriteViewModel("did / I / my homework / do / in my room / not", ".", ["i did not do my homework in my room", "in my room i did not do my homework"]),
+        // new RewriteViewModel("play / they / handball / in the evening / always", ".", ["they always play handball in the evening", "in the evening they always play handball"]),
+        // new RewriteViewModel("lunch / did / we / not / yesterday / have / at school", ".", ["yesterday we did not have lunch at school", "we did not have lunch at school yesterday"]),
+        // new RewriteViewModel("in Berlin / can / his uncle / he / visit", ".", ["he can visit his uncle in berlin", "in berlin he can visit his uncle"]),
+        new RewriteViewModel("to music / Marlen / is listening / now", ".", ["marlen is listening to music now"]),
         new RewriteViewModel("often / it / in Scotland / rains", ".", ["it often rains in scotland", "in scotland it often rains", "in scotland it rains often"])
     ];
 
@@ -155,7 +155,7 @@ function TestViewModel() {
         new RewriteViewModel("like / do / they / cola", "?", ["do they like cola"])
     ];
 
-    self.questionsPerSection = 4;
+    self.questionsPerSection = 1;
     self.guessesChanged = ko.observable(false);
 
     self.rewriteQuestions = [];
