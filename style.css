@@ -27,6 +27,11 @@ body {
     background-color: #bbdefb;
 }
 
+audio {
+    display: block;
+    max-width: 350px;
+}
+
 .navbar {
     font-family: 'Patua One', sans-serif;
     background-color: #42a5f5;
@@ -173,6 +178,22 @@ body {
     text-align: center;
     line-height: 2em;
     font-family: 'Patua One', sans-serif;
+}
+
+.content .introAudio {
+    min-height: 105px;
+    margin-bottom: 20px;
+}
+.content .introAudio .image {
+    float: right;
+}
+.content .introAudio img {
+    display: block;
+    margin-left: 20px;
+}
+
+.content .introYoda {
+    clear: both;
 }
 
 .content .imgContainer {
